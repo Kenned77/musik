@@ -1,2 +1,6 @@
-<h1>Genres#edit</h1>
-<p>Find me in app/views/genres/edit.html.erb</p>
+<h1>Editing Genre</h1>
+
+<%= render 'form', genre: @genre %>
+
+<%= link_to 'Cancel', @genre %> |
+<%= link_to 'All Genres', genres_path %>
