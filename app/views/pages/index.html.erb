@@ -8,5 +8,12 @@ Home Page
     <li> <%= link_to 'Sign up', new_user_registration_path %> </li>
     <li> <%= link_to 'Sign in', new_user_session_path %> </li>
   <% end %>
-  <li> <%= link_to 'All songs', songs_path %> </li>
+  <li>
+    <%= link_to 'Songs', songs_path %>
+    <ul>
+      <li> <%= link_to 'Links', song_links_path %> </li>
+    </ul>
+  </li>
+  <li> <%= link_to 'Artists', artists_path %> </li>
+  <li> <%= link_to 'Genres', genres_path %> </li>
 </ul>
