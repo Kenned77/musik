@@ -7,19 +7,21 @@
       <th>Index</th>
       <th>Song</th>
       <th>Artist</th>
-      <th colspan="3"></th>
+      <th colspan="3">Options</th>
     </tr>
   </thead>
 
   <tbody>
     <% @song_artists.each do |song_artist| %>
+      <% song = Song.find(song_artist.song_id) %>
+      <% artist = Artist.find(song_artist.artist_id) %>
       <tr>
-        <td><%= song_artist.index %></td>
-        <td><%= song_artist.song_id %></td>
-        <td><%= song_artist.artist_id %></td>
-        <td><%= link_to 'Show', song_artist %></td>
-        <td><%= link_to 'Edit', edit_song_artist_path(song_artist) %></td>
-        <td><%= link_to 'Delete', song_artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= song_artist.id %></td>
+        <td><%= link_to song.title, song %></td>
+        <td><%= link_to artist.name, artist %></td>
+        <td>[<%= link_to 'View', song_artist %>]</td>
+        <td>[<%= link_to 'Edit', edit_song_artist_path(song_artist) %>]</td>
+        <td>[<%= link_to 'Delete', song_artist, method: :delete, data: { confirm: 'Are you sure?' } %>]</td>
       </tr>
     <% end %>
   </tbody>
