@@ -1,2 +1,13 @@
-<h1>SongArtists#show</h1>
-<p>Find me in app/views/song_artists/show.html.erb</p>
+
+<p>
+  <strong>Song ID:</strong>
+  <%= @song_artist.song_id %>
+</p>
+
+<p>
+  <strong>Artist ID:</strong>
+  <%= @song_artist.artist_id %>
+</p>
+
+<%= link_to 'Edit', edit_song_artist_path(@song_artist) %> |
+<%= link_to 'All Song-Artist Relationships', song_artists_path %>

@@ -1,2 +1,6 @@
-<h1>SongArtists#edit</h1>
-<p>Find me in app/views/song_artists/edit.html.erb</p>
+<h1>Editing Song/Artist Relationship</h1>
+
+<%= render 'form', song_artist: @song_artist %>
+
+<%= link_to 'Cancel', @song_artist %> |
+<%= link_to 'All Song-Artist Relationships', song_artists_path %>

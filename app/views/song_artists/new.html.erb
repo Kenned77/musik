@@ -1,2 +1,5 @@
-<h1>SongArtists#new</h1>
-<p>Find me in app/views/song_artists/new.html.erb</p>
+<h1>New Song/Artist Relationship</h1>
+
+<%= render 'form', song_artist: @song_artist %>
+
+<%= link_to 'All Song-Artist Relationships', song_artists_path %>
