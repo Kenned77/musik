@@ -17,12 +17,37 @@ class SongArtistsController < ApplicationController
   end
 
   def create
+    @song_artist = SongArtist.new(song_artist_params)
+
+    respond_to do |format|
+      if @song_artist.save
+        format.html { redirect_to @song_artist, notice: 'Song/Artist relationship was successfully created.' }
+        format.json { render :show, status: :created, location: @song_artist }
+      else
+        format.html { render :new }
+        format.json { render json: @song_artist.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
+    respond_to do |format|
+      if @song_artist.update(song_params)
+        format.html { redirect_to @song_artist, notice: 'Song/Artist relationship was successfully updated.' }
+        format.json { render :show, status: :ok, location: @song_artist }
+      else
+        format.html { render :edit }
+        format.json { render json: @song_artist.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
+    @song_artist.destroy
+    respond_to do |format|
+      format.html { redirect_to songs_url, notice: 'Song/Artist relationship was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
